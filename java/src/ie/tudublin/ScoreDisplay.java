@@ -70,8 +70,7 @@ public class ScoreDisplay extends PApplet {
 		stroke(0);
 
 		float y;
-		for (int i = 0; i < 5; i++)
-		{
+		for (int i = 0; i < 5; i++) {
 			y = map(i, 0, 4, topborder, height - topborder);
 			stroke(0);
 			line(border, y, width - border, y);
@@ -86,6 +85,10 @@ public class ScoreDisplay extends PApplet {
 		float lineX = 0;
 		float lineY1 = 0;
 		float lineY2 = 0;
+		float secondlineX = 0;
+		float secondlineX2 = 0;
+		float secondlineY1 = 0;
+		float secondlineY2 = 0;
 
 		int border = 100;
 
