@@ -2,6 +2,7 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
+import ie.tudublin.Note;
 
 import processing.core.PApplet;
 
@@ -10,6 +11,8 @@ public class ScoreDisplay extends PApplet
 	String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
 	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+
+	ArrayList<Note> notes;
 	
 	public void settings()
 	{
@@ -22,7 +25,12 @@ public class ScoreDisplay extends PApplet
 	}
 
 	public void setup() 
-	{
+	{ 
+		
+		notes = new ArrayList<Note>();
+
+		loadScore();
+		printScore();
 		
 	}
 
@@ -30,6 +38,32 @@ public class ScoreDisplay extends PApplet
 	{
 		background(255);
 		
+	}
+
+	void loadScore(){
+
+		for(int i=0;i<score.length(); i++){
+			char currentNote = score.charAt(i);
+			int currentDuration = 1;
+
+			if(i+1 != score.length()){
+				char nextChar = score.charAt(i+1);
+				if(Character.isDigit(nextChar)){
+					currentDuration = nextChar - '0';
+					i++;
+				}
+			}
+			Note note = new Note(currentNote, currentDuration);
+			notes.add(note);
+			
+		}
+	}
+
+	void printScore(){
+		for (Note note:notes){
+			println(note.getNote() + note.getDuration());
+
+		}
 	}
 
 	void drawNotes()
