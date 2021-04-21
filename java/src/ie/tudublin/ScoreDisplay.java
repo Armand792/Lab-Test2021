@@ -37,8 +37,9 @@ public class ScoreDisplay extends PApplet
 	public void draw()
 	{
 		background(255);
-		
+		drawStaveLines();
 	}
+
 
 	void loadScore(){
 
@@ -61,10 +62,20 @@ public class ScoreDisplay extends PApplet
 
 	void printScore(){
 		for (Note note:notes){
-			println(note.getNote() + note.getDuration());
+			println(note.getNote() + " " + note.getDuration());
 
 		}
 	}
+
+	void drawStaveLines(){
+		stroke(0);
+		line(200, 200, 800, 200);
+		line(200, 220, 800, 220);
+		line(200, 240, 800, 240);
+		line(200, 260, 800, 260);
+		line(200, 280, 800, 280);
+	}
+
 
 	void drawNotes()
 	{
